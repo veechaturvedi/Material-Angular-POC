@@ -1,0 +1,8 @@
+﻿<mat-toolbar color="primary">
+  <button mat-button routerLink="/home">Home</button>
+  <button mat-button *ngIf="auth.isLoggednIn()" routerLink="/components/usertable">Usertable</button>
+  <button mat-button *ngIf="auth.isLoggednIn()" routerLink="/components/codevolution">Codevolution</button>
+  <button mat-button *ngIf="!auth.isLoggednIn()" routerLink="/register">Register</button>
+  <button mat-button *ngIf="!auth.isLoggednIn()" routerLink="/login">Login</button>
+  <button mat-button *ngIf="auth.isLoggednIn()" (click)="auth.logout()">Logout</button>
+</mat-toolbar>

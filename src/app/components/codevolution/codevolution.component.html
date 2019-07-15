@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 no-float center-block master-search-wrap">
+      <h2 class="master-header">Take a fun</h2>
+      <mat-card>
+<div class="">
+  IF Condition
+    <div *ngIf="displayName; then thenblock; else elseblock"></div>
+    <ng-template #thenblock>
+      <h3>Condition is shown</h3>
+    </ng-template>
+    <ng-template #elseblock>
+      <h3>Condition is hidden</h3>
+    </ng-template>
+
+    <hr/>
+    <h4>event Binding</h4>
+    <button (click)="getclick()" mat-raised-button>Greet</button>
+    <p>{{mgs}}</p>
+
+<h4>Switch Cases</h4>
+<div [ngSwitch]="color">
+  <div *ngSwitchCase="'red'" style="color:red">You picked red color</div>
+  <div *ngSwitchCase="'blue'" style="color:blue">You picked blue color</div>
+  <div *ngSwitchCase="'green'" style="color:green">You picked green color</div>
+  <div *ngSwitchDefault>pick again</div>
+</div>
+<hr/>
+<h4>ng forDirective</h4>
+<div *ngFor="let color of colors, index as i">
+<h5>{{i}} {{color | titlecase}}</h5>
+
+</div>
+<div app-employee-list></div>
+</div>
+</mat-card>
+</div>
+</div>
+</div>
