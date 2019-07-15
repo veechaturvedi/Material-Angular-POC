@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 no-float center-block master-search-wrap">
+      <h2 class="master-header">Take a fun</h2>
+      <mat-card>
+       <p>
+          {{name}} works!
+        </p>
+        <ul>
+          <li>Age: {{age}}</li>
+          <li>Email Address: {{email}}</li>
+          <li>Address: {{address.city}}, {{address.state}}, {{address.country}}</li> 
+        </ul>
+        <button (click)="onClick()" mat-raised-button>Click me</button>
+        <button (click)="toggleEdit()" mat-raised-button>Click me</button>
+        <br/>
+        <br/>
+        <div *ngIf=isEdit>
+          <form>
+            <mat-input-container>
+                <input matInput type="text" placeholder="Name" [(ngModel)]="name" name="name"/>
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type="number" placeholder="Age" [(ngModel)]="age" name="age">
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type="email" placeholder="Email" [(ngModel)]="email" name="email">
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type="text" placeholder="City" [(ngModel)]="address.city" name="city"> 
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type="text" placeholder="State" [(ngModel)]="address.state" name="state">
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type="text" placeholder="Country" [(ngModel)]="address.country" name="country">
+            </mat-input-container>
+            </form>
+        </div>
+       
+        <hr/>
+        <form (submit)="addHobby(hobby.value)">  
+        
+          <mat-input-container>
+            <input matInput type="text" placeholder="hobby" #hobby>
+          </mat-input-container>
+          
+        </form>
+        <hr/>
+        <p>Hobbbies</p>
+        <ul role="list" class="list-item">
+          <li role="listitem" *ngFor="let hobby of hobbies; let i = index">
+            {{i+1}}:  {{hobby}} <button mat-raised-button (click)="deleteHobby(hobby)">Delete</button></li></ul>
+        <h1>Posts</h1>
+        <div *ngFor="let post of posts">
+          <h3>{{post.title}}</h3>
+          <p>{{post.body}}</p>
+          <p>{{post.userId}}</p>
+        
+        </div>
+
+        <div *ngIf="displayName; then thenblock; else elseblock"></div>
+        <ng-template #thenblock>
+          <h3>Condition is shown</h3>
+        </ng-template>
+        <ng-template #elseblock>
+          <h3>Condition is hidden</h3>
+        </ng-template>
+
+        <hr>
+        
+        <button (click)="getclick()" mat-raised-button>Greet</button>
+        <p>{{mgs}}</p>
+
+      </mat-card>
+    </div>
+  </div>
+</div>
